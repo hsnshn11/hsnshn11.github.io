@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prizma Müzik</title>
+<meta name="description" content="Prizma Müzik — Türkçe rap ve pop alanında çalışan bağımsız müzik etiketi. Her Cuma 20:00'de yeni şarkı.">
+<link rel="icon" href="prizma-icon.png">
+<meta property="og:title" content="Prizma Müzik">
+<meta property="og:description" content="Türkçe rap ve pop alanında bağımsız müzik etiketi. Her Cuma 20:00'de yeni şarkı.">
+<meta property="og:image" content="prizma-icon.png">
+<style>
+  :root{
+    --pink:#FF2D6E;
+    --teal:#00E8CD;
+    --bg:#020508;
+    --muted:#92c8c4;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg);
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:48px 20px;
+    background-image:radial-gradient(circle at 50% 0%, rgba(255,45,110,.18), transparent 55%),
+                     radial-gradient(circle at 50% 100%, rgba(0,232,205,.12), transparent 55%);
+  }
+  .logo{width:104px;height:104px;border-radius:50%;object-fit:cover;margin-bottom:24px}
+  h1{
+    font-size:34px;letter-spacing:.12em;margin:0 0 8px;text-transform:uppercase;font-weight:700;
+  }
+  .tag{color:var(--muted);margin:0 0 6px;font-size:16px}
+  .promise{
+    color:var(--teal);font-size:14px;letter-spacing:.06em;margin:0 0 34px;text-transform:uppercase;
+  }
+  .rule{width:64px;height:3px;background:var(--pink);border:0;margin:0 0 34px;border-radius:2px}
+  .links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:44px}
+  .links a{
+    display:inline-block;padding:11px 22px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.22);
+    color:#fff;text-decoration:none;font-size:15px;
+    transition:border-color .15s, background .15s;
+  }
+  .links a:hover{border-color:var(--pink);background:rgba(255,45,110,.12)}
+  .artists{color:var(--muted);font-size:14px;letter-spacing:.14em;margin:0 0 44px;text-transform:uppercase}
+  footer{font-size:13px;color:#5d6f72;text-align:center;line-height:2}
+  footer a{color:#8a9b9e;text-decoration:none;margin:0 8px}
+  footer a:hover{color:var(--teal)}
+</style>
+</head>
+<body>
+
+  <img class="logo" src="prizma-icon.png" alt="Prizma Müzik">
+
+  <h1>Prizma Müzik</h1>
+  <p class="tag">Türkçe rap &amp; pop · bağımsız müzik etiketi</p>
+  <p class="promise">Her Cuma 20:00'de yeni şarkı</p>
+
+  <hr class="rule">
+
+  <nav class="links">
+    <a href="https://www.youtube.com/@prizmamuzik" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.instagram.com/prizmamuzikofficial/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.tiktok.com/@prizmamuzik" target="_blank" rel="noopener">TikTok</a>
+    <a href="mailto:prizmamuzikofficial@gmail.com">İşbirliği</a>
+  </nav>
+
+  <p class="artists">ZOKA · BEŞİZ · VELOZ</p>
+
+  <footer>
+    <div>
+      <a href="terms.html">Kullanım Koşulları</a>·<a href="privacy.html">Gizlilik Politikası</a>
+    </div>
+    <div>© 2026 Prizma Müzik</div>
+  </footer>
+
+</body>
+</html>
