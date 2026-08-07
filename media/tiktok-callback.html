@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Prizma Müzik — panele dönülüyor</title>
+<!--
+  TikTok OAuth icin SABIT yonlendirme adresi.
+  7 Agustos 2026'da eklendi.
+
+  NEDEN: Yonlendirme adresi Cloudflare tuneline bagliydi. trycloudflare her
+  aciliste yeni rastgele adres verdigi icin her seferinde (a) portalda redirect
+  URI degistirmek, (b) panelde adresi guncellemek, (c) yeniden baglanmak
+  gerekiyordu — ve o sure boyunca panelin TAMAMI internete acik kaliyordu.
+
+  Bu sayfa o zinciri kiriyor: TikTok kodu buraya birakiyor, sayfa da tarayiciyi
+  kullanicinin KENDI makinesindeki panele yonlendiriyor. Ayni sekme yonlendirmesi
+  oldugu icin CORS sorunu yok.
+
+  GUVENLIK: Bu sayfa panel hakkinda hicbir bilgi tasimiyor. localhost adresi
+  ziyaretcinin KENDI makinesini gosterir — baskasi bu sayfayi acarsa kendi
+  bilgisayarina yonlenir. Kod tek kullanimlik, dakikalar icinde oluyor ve
+  kullanilabilmesi icin client_secret gerekiyor; o da sadece panelde.
+  Kod, adres cubugundan history.replaceState ile hemen siliniyor.
+-->
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:#0b0b0f;color:#e8e8ee;
+       display:grid;place-items:center;height:100vh;margin:0}
+  .k{text-align:center;max-width:420px;padding:24px}
+  .m{font-size:12px;letter-spacing:.22em;color:#ff3b6b;margin-bottom:16px}
+  h1{font-size:19px;font-weight:600;margin:0 0 10px}
+  p{color:#8b8b99;font-size:14px;line-height:1.6;margin:0 0 18px}
+  a{color:#35d6c8;text-decoration:none;border-bottom:1px solid rgba(53,214,200,.35)}
+  code{background:#16161d;padding:2px 6px;border-radius:4px;font-size:12px}
+</style>
+</head>
+<body>
+<div class="k">
+  <div class="m">PRİZMA MÜZİK</div>
+  <h1>Panele dönülüyor…</h1>
+  <p id="d">TikTok yetkilendirmesi tamamlandı. Panel açılmazsa aşağıdaki bağlantıya tıkla.</p>
+  <p><a id="l" href="http://localhost:4300/">Paneli aç</a></p>
+</div>
+<script>
+(function () {
+  var sorgu = window.location.search || '';
+  var hedef = 'http://localhost:4300/oauth/tiktok/callback' + sorgu;
+
+  if (!/[?&]code=/.test(sorgu)) {
+    document.getElementById('d').textContent =
+      'Bu sayfa TikTok yetkilendirmesinin dönüş adresidir. Doğrudan açıldığında yapacak bir şey yok.';
+    return;
+  }
+
+  document.getElementById('l').href = hedef;
+  document.getElementById('l').textContent = 'Panele git';
+
+  // Kodu adres cubugundan ve gecmisten sil.
+  try { history.replaceState(null, '', window.location.pathname); } catch (e) {}
+
+  window.location.replace(hedef);
+})();
+</script>
+</body>
+</html>
